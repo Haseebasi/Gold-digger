@@ -1,0 +1,21 @@
+{
+  "name": "gold-digger",
+  "version": "1.0.0",
+  "description": "app for gold investing",
+  "homepage": "https://github.com/Haseebasi/Gold-digger#readme",
+  "bugs": {
+    "url": "https://github.com/Haseebasi/Gold-digger/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Haseebasi/Gold-digger.git"
+  },
+  "license": "ISC",
+  "author": "haseeb",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  }
+}
