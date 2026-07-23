@@ -1,10 +1,10 @@
 import http from 'node:http'
 import { handlePost } from './handlers/routehandlers.js'
 import { serveStatic } from './utils/serveStatic.js'
+import { getPrice } from './utils/getPrice.js'
 
 
-
-const Port = 8000
+const PORT = 8000
 const __dirname = import.meta.dirname
 const server = http.createServer(async (req,res)=>{
     if (req.url.startsWith( '/api/live')) {
