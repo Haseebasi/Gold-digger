@@ -1,8 +1,8 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
-import { getData } from '../utils/getData'
+import { getData } from '../utils/getData.js'
 
-export function handlePost(req,res){
+export async function handlePost(req,res){
     try{
      const parsedData = parseJSONBody(req)
      await addTransaction(data)

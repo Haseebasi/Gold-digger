@@ -1,12 +1,12 @@
 import http from 'node:http'
-import { handleGet } from './handlers/routehandlers'
-import { serveStatic } from './utils/serveStatic'
+import { handlePost } from './handlers/routehandlers.js'
+import { serveStatic } from './utils/serveStatic.js'
 
 
 
 const Port = 8000
 const __dirname = import.meta.dirname
-const server = createServer((req,res)=>{
+const server = http.createServer(async (req,res)=>{
     if (req.url.startsWith( '/api/live')) {
         res.statusCode = 200
     res.setHeader('content-type','text/event-stream')
@@ -27,5 +27,6 @@ const server = createServer((req,res)=>{
     }
 }
 )
+server.listen(PORT, () => console.log(`Connected on port: ${PORT}`))
 
 

@@ -1,7 +1,6 @@
 import path from 'node:path'
 import fs from 'node:fs/promises'
 import {sendJSONResponse} from './sendJSONResponse.js'
-// import { sendJsonResponse } from './sendJsonResponse.js'
 import { getContentType } from './getContentType.js'
 
 export async function serveStatic(req, res, baseDir) {
