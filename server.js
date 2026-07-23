@@ -1,9 +1,11 @@
 import http from 'node:http'
 import { handleGet } from './handlers/routehandlers'
+import { serveStatic } from './utils/serveStatic'
 
 
 
 const Port = 8000
+const __dirname = import.meta.dirname
 const server = createServer((req,res)=>{
     if (req.url.startsWith( '/api/live')) {
         res.statusCode = 200
@@ -17,8 +19,11 @@ const server = createServer((req,res)=>{
         )
     },15000)
     } 
-    if (req.url === "/api/invest" && req.method === "POST"){
+    else if (req.url === "/api/invest" && req.method === "POST"){
         handlePost(req,res)
+    }
+    else if (!req.url.startsWith('/api')) {
+        return await serveStatic(req, res, __dirname)
     }
 }
 )
