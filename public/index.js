@@ -40,8 +40,8 @@ investmentForm.addEventListener('submit', function (e) {
         const ounces = (amount / currentPrice).toFixed(2)
          const transaction = {
                 timestamp: new Date().toISOString(), 
-                amountPaid: amount,
-                pricePerOz: currentPrice,
+                amountPaid: `£${amount}`,
+                pricePerOz: `£${currentPrice}`,
                 goldSold: ounces}
         try{
             const response = await fetch("/api/invest",{

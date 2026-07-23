@@ -17,9 +17,9 @@ const server = createServer((req,res)=>{
         )
     },15000)
     } 
-    // else if (!req.url.startsWith('/api')) {
-    //     await serveStatic(req, res, __dirname);
-    // }
+    if (req.url === "/api/invest" && req.method === "POST"){
+        handlePost(req,res)
+    }
 }
 )
 
