@@ -22,7 +22,6 @@ eventSource.onmessage = (event) => {
     statusBtn.textContent = "Live Price 🟢"
     investBtn.disabled = false
   }
-  
 }
 eventSource.onerror = () => {
     statusBtn.textContent = "Live Price 🔴"
@@ -37,12 +36,30 @@ investmentForm.addEventListener('submit', function (e) {
     
     if (isNaN(amount) || amount <= 0) return;
 
-    if (!isNaN(currentPrice) && currentPrice > 0) {
+    // if (!isNaN(currentPrice) && currentPrice > 0) {
         const ounces = (amount / currentPrice).toFixed(2)
-        summaryText.textContent = `You just bought ${ounces} ounces (ozt) for £${amount.toFixed(2)}. You will receive documentation shortly.`
-    } else {
-        summaryText.textContent = `You just invested £${amount.toFixed(2)}. You will receive documentation shortly.`
-    }
+         const transaction = {
+                timestamp: new Date().toISOString(), 
+                amountPaid: amount,
+                pricePerOz: currentPrice,
+                goldSold: ounces}
+        try{
+            const response = await fetch("/api/invest",{
+                method:"POST",
+                headers:{
+                    "content-type":"application/json"
+                },
+                body: JSON.stringify(transaction)
+            })
+            if (response.ok){
+                summaryText.textContent = `You just bought ${ounces} ounces (ozt) for £${amount.toFixed(2)}. You will receive documentation shortly.`
+            }else{
+                summaryText.textContent = 'Sorry ,Transaction failed...'
+            }
+       
+        }catch(err){
+                summaryText.textContent = 'Something went wrong'
+        }
     dialog.showModal()
 });
 closeDialogBtn.addEventListener('click',function(){
