@@ -142,6 +142,29 @@ input::placeholder {
     outline: 2px solid #fff;
 }
 
+.invest-btn:disabled,
+.invest-btn.disabled {
+    background-color: #cccccc;
+    background-image: none;
+    
+    color: #666666;
+    border-color: #bbbbbb;
+    
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+}
+
+
+.invest-btn:disabled:hover,
+.invest-btn.disabled:hover {
+    background-color: #cccccc;
+    background-image: none;
+    color: #666666;
+}
+
+
+
 .footnote {
     font-size: 10px;
     text-align: center;

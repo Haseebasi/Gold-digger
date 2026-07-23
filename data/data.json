@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "timestamp": "2026-07-23T07:37:29.432Z",
+    "amountPaid": "£4500",
+    "pricePerOz": "£2995.13",
+    "goldSold": "1.50"
+  }
+]
